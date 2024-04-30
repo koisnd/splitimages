@@ -16,18 +16,18 @@
 
 ### On Ubuntu
 
-`
+```
 # apt update
 # apt install -qy python3-wand
 # cd /usr/local/lib/python3*/dist-packages
 /usr/local/lib/python3.x/dist-packages# git clone https://github.com/koisnd/splitimages.git
-`
+```
 
 ## Usage
 
-`
+```
 import splitimages
 
 si = splitimages.SplitImages(["/tmp/foo", "/tmp/bar"])
 si.split_images()
-`
+```
