@@ -4,9 +4,14 @@
   * The image is horizontal.
   * There is a blank space in the center of the image.
 
-![Original image](/test.png)
-![Left image](/test.png.0.png)
-![Right image](/test.png.1.png)
+|![Original image](/test.png)|
+|:-:|
+
+|![Left image](/test.png.0.png)|
+|:-:|
+
+|![Right image](/test.png.1.png)|
+|:-:|
 
 ## Requirements
 
