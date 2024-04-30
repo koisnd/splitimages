@@ -5,8 +5,9 @@ requirements:
     apt install python3-wand
 
 """
-import wand.image
 import os
+import shutil
+import wand.image
 
 class SplitImages():
     def __init__(self, dirs=None):
@@ -58,15 +59,22 @@ class SplitImages():
                 with origin[x2bd:x, 0:y] as right_img:
                     _fn = filename + self.template.format(num=0, suffix=suf)
                     right_img.save(filename=_tf)
-                    os.rename(_tf, _fn)
+                    self.move(_tf, _fn)
                 with origin[0:x2bd, 0:y] as left_img:
                     _fn = filename + self.template.format(num=1, suffix=suf)
                     left_img.save(filename=_tf)
-                    os.rename(_tf, _fn)
+                    self.move(_tf, _fn)
             os.remove(filename)
             return True
         "x -- axis to be devided -- was not found"
         return True
+
+    def move(self, src=None, dst=None):
+        try:
+            os.rename(src, dst)
+        except OSError:
+            shutil.copy(src, dst)
+            os.remove(src)
 
     def split_images(self):
         for _d in self.dirs:
