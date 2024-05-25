@@ -24,7 +24,14 @@ class SplitImages():
         center_x = x // 2
         #print(len(wb), x, y, x*y, center_x)
         whitebelt = [-1, -1]
-        for fx in range(center_x, center_x + 50):
+        split_range = []
+        for _i in range(50):
+            if _i:
+                split_range.append(center_x + _i)
+                split_range.append(center_x - _i)
+            else:
+                split_range.append(center_x)
+        for fx in split_range:
             tf = all(i > self.gray_threshold for i in [
                 wb[_xy] for _xy in range(fx, x*y, x)])
             if tf:
